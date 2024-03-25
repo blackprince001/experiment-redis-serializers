@@ -7,12 +7,12 @@ class RedisSerializer:
         self._first_variable = None
 
     @staticmethod
-    def serialize(item: object, iterable: List[any] = None):
+    def serialize(item: object, iterable: List[any] = None) -> bytes:
         # TODO handle redis-lists with iterables
         return pickle.dumps(item)
 
     @staticmethod
-    def deserialize(obj_dump: any):
+    def deserialize(obj_dump: any) -> any:
         # TODO handle redis-lists with iterables
         return pickle.loads(obj_dump)
 
@@ -20,3 +20,4 @@ class RedisSerializer:
 
 
 # TODO make this repo a package to be reused anywhere.
+# TODO add support for protobuf encoding schemes
